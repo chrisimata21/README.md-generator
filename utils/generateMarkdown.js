@@ -58,13 +58,52 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license === licenseArr[0]) {
+    return `Read more about ${licenseArr[0]} here:`;
+  } else if (license === licenseArr[1]) {
+    return `Read more about ${licenseArr[1]} here:`;
+  } else if (license === licenseArr[2]) {
+    return `Read more about ${licenseArr[2]} here:`;
+  } else if (license === licenseArr[3]) {
+    return `Read more about ${licenseArr[3]} here:`;
+  } else if (license === licenseArr[4]) {
+    return `Read more about ${licenseArr[4]} here:`;
+  } else if (license === licenseArr[5]) {
+    return `Read more about ${licenseArr[5]} here:`;
+  } else if (license === licenseArr[6]) {
+    return `Read more about ${licenseArr[6]} here:`;
+  } else if (license === licenseArr[7]) {
+    return `Read more about ${licenseArr[7]} here:`;
+  } else {
+    return "";
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
+  return `
+# ${data.title}
+## Badges
+${renderLicenseBadge(data.license)}
+## Description
+${data.description}
+## Table of contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [Tests](#tests)
+## Installation
+${data.installation}
+## Usage
+${data.usage}
+## Contribution
+${data.contribution}
+## Tests
+${data.tests}
+## License
+${renderLicenseSection(data.license)}
+${renderLicenseLink(data.license)}`;
 }
 
 module.exports = generateMarkdown;
